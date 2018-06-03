@@ -5,6 +5,7 @@ import br.com.app.horadorango.usecase.PlaceUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -24,8 +25,8 @@ public class HoraDoRangoController {
         return placeUseCase.listAllPlaces();
     }
 
-    @RequestMapping(value="/{placeId}", method = GET)
-    public Place getPlace(@PathVariable Integer placeId) {
+    @RequestMapping(method = GET)
+    public Place getPlace(@RequestParam("placeId") Integer placeId) {
         return placeUseCase.getMenuPlace(placeId);
     }
 
